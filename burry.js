@@ -11,6 +11,9 @@
         define([], function () {
             return factory();
         });
+    } else if (typeof exports === 'object') {
+      // Node / browserify
+      module.exports = factory();
     } else {
         // Browser globals
         root.Burry = factory();

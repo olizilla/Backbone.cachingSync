@@ -11,6 +11,9 @@
         define(['jquery', 'underscore', 'backbone', 'burry'], function ($, _, Backbone, Burry) {
             return (root.Backbone.cachingSync = factory($, _, Backbone, Burry));
         });
+    } else if (typeof exports === 'object') {
+      // Node / browserify
+      module.exports = factory(require('jquery'), require('underscore'), require('backbone'), require('./burry'));
     } else {
         // Browser globals
         root.Backbone.cachingSync = factory(root.$, root._, root.Backbone, root.Burry);
